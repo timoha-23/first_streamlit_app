@@ -1,8 +1,6 @@
 import streamlit
-streamlit.title('My First streamlit App')
 streamlit.title(' 🥣 🥗 🐔 🥑🍞')
-streamlit.header('Importan Topics')
-streamlit.text('Be curious')
-streamlit.text('Learn')
-streamlit.text('Have Fun')
-streamlit.text('keep coding')
+streamlit.header('Breakfast Menu')
+streamlit.text('Omega 3 & Blueberry Oatmeal')
+streamlit.text('Kale, Spinach & Rocket Smoothie')
+streamlit.text('Hard-Boiled Free-Range Egg')
