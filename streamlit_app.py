@@ -25,14 +25,12 @@ streamlit.header("Fruityvice Fruit Advice!")
 fruit_choice = streamlit.text_input('What fruit would you like information about?', 'Kiwi') # fruit selection input
 streamlit.write('The user entered ', fruit_choice)
 
+
 import requests
 fruityvice_response = requests.get("https://fruityvice.com/api/fruit/" + fruit_choice) # get fruit details from fruityvue api response
 
 fruityvice_normalized = pandas.json_normalize(fruityvice_response.json()) # normalize the data
 streamlit.dataframe(fruityvice_normalized) # present data in a table format
-
-
-
 
 
 #testing snowflake connection
@@ -42,3 +40,7 @@ my_cur.execute("select * from fruit_load_list")
 my_data_row = my_cur.fetchall()
 streamlit.header("The fruit load list contains:")
 streamlit.dataframe(my_data_row)
+
+# allow user to add a fruid to the list
+add_my_fruit = streamlit.text_input('What fruit would you like information about?') # fruit selection input
+streamlit.write('The user entered ', add_my_fruit)
