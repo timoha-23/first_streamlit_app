@@ -22,6 +22,9 @@ fruits_to_show = my_fruit_list.loc[fruits_selected]
 # Display the table on the page.
 streamlit.dataframe(fruits_to_show)
 
+
+
+
 # create a function
 def get_fruityvice_data(this_fruit_choice):
      fruityvice_response = requests.get("https://fruityvice.com/api/fruit/" + this_fruit_choice) # get fruit details from fruityvue api response
@@ -36,7 +39,7 @@ try:
         streamlit.error("Please select a fruit.")
     else:
         back_from_function = get_fruityvice_data(fruit_choice)
-        streamlit.dataframe(fruityvice_normalized) # present data in a table format
+        streamlit.dataframe(back_from_function) # present data in a table format
      except URLError as e:
     streamlit.error()
         
