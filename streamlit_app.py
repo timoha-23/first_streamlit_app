@@ -22,11 +22,11 @@ streamlit.dataframe(fruits_to_show)
 
 #new section to display fruityvue api response
 streamlit.header("Fruityvice Fruit Advice!")
+fruit_choice = streamlit.text_input('What fruit would you like information about?') # fruit selection input
+streamlit.write('The user entered ', fruit_choice)
 
 import requests
-# get fruit details from online DB
-fruityvice_response = requests.get("https://fruityvice.com/api/fruit/" + "kiwi")
-# normalize the data
-fruityvice_normalized = pandas.json_normalize(fruityvice_response.json())
-# present data in a table format
-streamlit.dataframe(fruityvice_normalized)
+fruityvice_response = requests.get("https://fruityvice.com/api/fruit/" + fruit_choice) # get fruit details from fruityvue api response
+
+fruityvice_normalized = pandas.json_normalize(fruityvice_response.json()) # normalize the data
+streamlit.dataframe(fruityvice_normalized) # present data in a table format
